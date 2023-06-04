@@ -5,12 +5,14 @@ import Swal from 'sweetalert2';
 import userImg from '../../../assets/user.png';
 import { FaCartPlus } from "react-icons/fa";
 import useCart from '../../../Hooks/useCart';
+import useAdmin from '../../../Hooks/useAdmin';
 
 const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     const [cart] = useCart();
+    const [isAdmin] = useAdmin();
 
 
     const handleLogout = () => {
@@ -34,6 +36,10 @@ const NavBar = () => {
         <li><Link to={'/'}>Home</Link> </li>
         <li><Link to={'/menu'}>Menu</Link> </li>
         <li><Link to={'/order/salad'}>Order</Link> </li>
+        {
+            isAdmin ? <li><Link to={'/dashboard/adminhome'}>Dashboard</Link> </li> :
+            <li><Link to={'/dashboard/userhome'}>Dashboard</Link> </li>
+        }
         <li>
             <Link to={'/dashboard/mycart'}>
                 <button className="btn gap-2 bg-slate-900">
