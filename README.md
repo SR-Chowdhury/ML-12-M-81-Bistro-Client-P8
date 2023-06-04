@@ -1,6 +1,7 @@
 # ML-12-Module- 81 [Final Project Part 8]
 
 * 81-1 Create different Dashboard home page for User and Admin
+* 81-2 Create Admin dashboard stats api and load data
 
 
 ## react-boilerplate-2
