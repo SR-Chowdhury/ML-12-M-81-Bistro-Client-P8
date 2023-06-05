@@ -3,7 +3,7 @@ import ReactHelmet from '../../../Components/ReactHelmet/ReactHelmet';
 import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie} from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Legend} from 'recharts';
 
 
 const AdminHome = () => {
@@ -124,6 +124,7 @@ const AdminHome = () => {
                 </div>
                 <div className="w-1/2">
                     <PieChart width={400} height={400}>
+                        <Legend/>
                         <Pie
                             data={chartData}
                             cx="50%"
@@ -135,7 +136,7 @@ const AdminHome = () => {
                             dataKey="count"
                         >
                             {chartData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                <Cell name={entry.category} key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                         </Pie>
                     </PieChart>
